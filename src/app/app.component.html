@@ -1,0 +1,26 @@
+ <nav class="navbar navbar-toggleable navbar-light bg-primary">
+  
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/home">SteemRecovery</a>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
+    <ul class="navbar-nav mt-2 mt-md-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/blog">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [href]="url" [hidden]="this.is_authenticated">Login</a>
+      </li>
+    </ul>
+  </div>
+
+</nav> 
+
+<router-outlet></router-outlet>
+
+
