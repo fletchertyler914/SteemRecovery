@@ -8,6 +8,7 @@ import * as steemconnect from 'steemconnect';
 })
 export class HomeComponent implements OnInit {
   is_authenticated: boolean;
+  user: string;
   constructor() { }
 
   ngOnInit() {
@@ -17,6 +18,7 @@ export class HomeComponent implements OnInit {
             this.is_authenticated = false;
         } else {
             console.log(`Logged in as ${result.username} on Home`);
+            this.user = result.username;
             this.is_authenticated = true;
         }
     });

@@ -1,0 +1,18 @@
+.blog-container {
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+.card {
+    display: inline-block;
+}
+
+.card-img {
+    height: 76px;
+    width: 130px;
+    background-size: contain;
+}
+.card-block {
+    float: right;
+}
