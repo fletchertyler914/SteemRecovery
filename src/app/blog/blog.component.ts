@@ -13,6 +13,7 @@ declare var $: any;
 export class BlogComponent implements OnInit {
   is_authenticated: boolean;
   results: any;
+  regex: any;
 
 
   constructor() { }
@@ -29,7 +30,8 @@ export class BlogComponent implements OnInit {
     });
 
     const fetchArticles = new Promise((resolve, reject) => {
-      steem.api.getState('trending/steem-recovery', function(err, result) {
+      steem.api.getState('created/steem-recovery', function(err, result) {
+        console.log(result);
         resolve(result);
       });
     })
@@ -40,6 +42,15 @@ export class BlogComponent implements OnInit {
       });
 
       this.results = resultsToArray;
+
+      for (let i = 0; i < this.results.length; i++) {
+        // this.results[i].image = this.results[i].body;
+        // this.regex = /<img[^>]+src="(http:\/\/[^">]+)"/g;
+        // this.regex.exec(this.results[i].body);
+
+        console.log(this.regex);
+      }
+
       console.log(this.results);
     })
     .catch((err) => {

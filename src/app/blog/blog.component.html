@@ -1,25 +1,23 @@
 <div class="blog-container">
-  <p>The Blog Will Go Here</p>
-</div>
-
-<!-- <div class="card" *ngFor="result in this.results">
-  <img class="card-img" src="https://steemitimages.com/0x0/https://steemitimages.com/DQmdmcu6heDgkRSxCTghKTrfwpdjFyRV31KrZPdp3GkDXpN/IMG_0288.JPG" alt="Card image cap">
-  <div class="card-block">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <p>{{result.author}}</p>
-  </div>
-</div> -->
-
-<div class="container">
-  <div class="card-group" *ngFor="let result of this.results">
-    <div class="card">
-      <img class="card-img" src="" alt="Card image cap">
-      <div class="card-block">
-        <h4 class="card-title">{{result.title}}</h4>
-        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat velit, ab nesciunt suscipit veniam officia.</p>
-        <p>{{result.author}}</p>
-        <!-- <markdown-to-html [data]="result.body"></markdown-to-html> -->
+  
+  <div class="container">
+    <div class="card-group" *ngFor="let result of this.results">
+      <div class="card mb-3">
+        <div class="row">
+          <div class="col image-container">
+            <img class="img-thumbnail" src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="Card image cap"/>
+          </div>
+          <div class="col flex card-details">
+            <div class="card-block">
+              <h4 class="card-title">{{result.title}}</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat velit, ab nesciunt suscipit veniam officia.</p>
+              <p class="card-text">{{result.author}}</p>
+              <!-- <markdown-to-html [data]="result.body"></markdown-to-html> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
 </div>
