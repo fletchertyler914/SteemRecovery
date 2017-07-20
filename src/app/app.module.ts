@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -25,7 +27,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    MarkdownToHtmlModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

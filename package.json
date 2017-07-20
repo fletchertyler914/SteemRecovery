@@ -25,8 +25,12 @@
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
+    "ng2-markdown-to-html": "^1.2.1",
     "ngx-bootstrap": "^1.7.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "rxjs": "^5.1.0",
+    "steem": "^0.6.1",
     "steemconnect": "0.0.35",
     "zone.js": "^0.8.4"
   },

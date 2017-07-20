@@ -26,10 +26,10 @@ export class AppComponent implements OnInit {
 
     steemconnect.isAuthenticated((err, result) => {
         if (err) {
-            console.log('Not Logged In');
+            // console.log('Not Logged In');
             this.is_authenticated = false;
         } else {
-            console.log(`Logged in as ${result.username}`);
+            // console.log(`Logged in as ${result.username}`);
             this.is_authenticated = true;
         }
     });

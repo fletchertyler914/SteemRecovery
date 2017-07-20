@@ -14,10 +14,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     steemconnect.isAuthenticated((err, result) => {
         if (err) {
-            console.log('Not Logged In On Home');
+            // console.log('Not Logged In On Home');
             this.is_authenticated = false;
         } else {
-            console.log(`Logged in as ${result.username} on Home`);
+            // console.log(`Logged in as ${result.username} on Home`);
             this.user = result.username;
             this.is_authenticated = true;
         }
