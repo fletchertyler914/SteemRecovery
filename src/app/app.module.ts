@@ -7,8 +7,9 @@ import { BlogComponent } from './blog/blog.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FeedService } from './feed.service';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';
 
 
@@ -30,7 +31,7 @@ const routes: Routes = [
     NgbModule.forRoot(),
     MarkdownToHtmlModule.forRoot()
   ],
-  providers: [],
+  providers: [FeedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

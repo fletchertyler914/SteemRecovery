@@ -1,10 +1,6 @@
-import { identifierModuleUrl } from '@angular/compiler';
+// import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import * as steemconnect from 'steemconnect';
-import * as steem from 'steem';
-
-declare var jquery: any;
-declare var $: any;
+import { FeedService } from '../feed.service';
 
 @Component({
   selector: 'app-blog',
@@ -13,47 +9,14 @@ declare var $: any;
 })
 export class BlogComponent implements OnInit {
   is_authenticated: boolean;
-  results: any;
-  regex: any;
+  articles: any;
 
-
-  constructor() { }
+  constructor(private feedService: FeedService) { }
 
   ngOnInit() {
-    steemconnect.isAuthenticated((err, result) => {
-        if (err) {
-            // console.log('Not Logged In On Blog');
-            this.is_authenticated = false;
-        } else {
-            // console.log(`Logged in as ${result.username} on Blog`);
-            this.is_authenticated = true;
-        }
-    });
+     // this.feedService.fetchArticles();
+      // this.feedService.fetchArticles();
 
-    const fetchArticles = new Promise((resolve, reject) => {
-      steem.api.getState('created/steem-recovery', function(err, result) {
-        resolve(result);
-      });
-    })
-    .then((results) => {
-
-      const resultsToArray = $.map(results['content'], function(value, index) {
-          return [value];
-      });
-
-      resultsToArray.forEach(function(obj) {
-        const jsonMeta = JSON.parse(obj['json_metadata']);
-        const has_image = jsonMeta.hasOwnProperty('image');
-
-        if (has_image) {
-          obj.image_source = jsonMeta['image'][0];
-        }
-      });
-
-      this.results = resultsToArray;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+      // console.log(this.articles);
   }
 }

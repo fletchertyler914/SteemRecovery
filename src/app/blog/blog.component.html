@@ -1,16 +1,16 @@
 <div class="blog-container">
   <div class="container">
-    <div class="card-group" *ngFor="let result of this.results">
+    <div class="card-group" *ngFor="let article of this.articles">
       <div class="card">
         <div class="row">
-          <div class="col-sm-3 image-container" [hidden]="!result.image_source">
-            <img class="img-fluid" src="{{result.image_source}}" alt="Card image cap" />
+          <div class="col-sm-3 image-container" [hidden]="!article.image_source">
+            <img class="img-fluid" src="{{article.image_source}}" alt="Card image cap" />
           </div>
           <div class="col-sm-8 card-details">
             <div class="card-block">
-              <h4 class="card-title">{{result.title}}</h4>
+              <h4 class="card-title">{{article.title}}</h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat velit, ab nesciunt suscipit veniam officia.</p>
-              <p class="card-text">{{result.author}}</p>
+              <p class="card-text">{{article.author}}</p>
               <!-- <markdown-to-html [data]="result.body"></markdown-to-html> -->
             </div>
           </div>
