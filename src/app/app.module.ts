@@ -7,7 +7,7 @@ import { BlogComponent } from './blog/blog.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-import { FeedService } from './feed.service';
+import { FeedService } from './feed/feed.service';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MarkdownToHtmlModule } from 'ng2-markdown-to-html';

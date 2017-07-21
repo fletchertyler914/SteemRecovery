@@ -1,8 +1,26 @@
-.navbar-brand {
-    color: #fff;
+@font-face {
+    font-family: 'steem-font';
+    src: url('../assets/proxima-nova-soft-semibold.otf');
 }
+
+.bg-primary {
+    background-color: #fff !important;   
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(25,79,153,0.6);
+}
+.navbar-brand {
+    font-family: 'steem-font';
+    color: #194F99;
+}
+.navbar-brand:hover {
+    color: #194F99;
+}
+
 .nav-link {
-    color: #fff !important;
+    font-family: 'steem-font';
+    color: #194F99 !important;
 }
 
 .profileImage {
@@ -13,6 +31,32 @@
     background-size: cover;
 }
 
+.profileLinkSmall {
+    display: none;
+}
+
 .line-height {
     line-height: 200%;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: rgba(25,79,153,0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("../assets/mobileIcon.svg") !important; 
+    background-repeat: no-repeat;
+    background-size: contain; 
+    background-position: center; 
+}
+
+
+@media (max-width: 575px) {
+    .profileImage {
+        display: none;
+    }
+
+    .profileLinkSmall {
+        display: block;
+    }
 }

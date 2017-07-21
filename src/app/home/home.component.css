@@ -1,4 +1,23 @@
+@font-face {
+    font-family: 'steem-font';
+    src: url('../../assets/proxima-nova-soft-semibold.otf');
+}
+
 .home-container {
     text-align: center;
-    margin-top: 3%;
+    margin-top: 3%; 
+}
+
+h2, p {
+    font-family: 'steem-font';
+}
+
+.smallScreenBreak {
+    display: none;
+}
+
+@media (max-width: 800px){
+    .smallScreenBreak {
+        display: block;
+    }
 }

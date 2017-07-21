@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
               const profile = JSON.parse(result[0].json_metadata)['profile'];
               this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
             } else {
-              this.profile_image = 'https://steemit.com/assets/0ee064e31a180b13aca01418634567a1.png';
+              this.profile_image = '../assets/NoProfileImage.png';
             }
           });
 

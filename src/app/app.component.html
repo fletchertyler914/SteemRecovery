@@ -3,7 +3,7 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" routerLink="/home">SteemRecovery</a>
+  <a class="navbar-brand" routerLink="/home"><img src="../assets/SmallSteemLogo.png" height="48"/>SteemRecovery</a>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
     <ul class="navbar-nav mt-2 mt-md-0 line-height">
@@ -15,7 +15,8 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" [href]="url" [hidden]="this.is_authenticated">Login</a>
-        <img class="profileImage" src="{{profile_image}}" width="48" height="48" [hidden]="!this.is_authenticated"/>
+        <img class="profileImage profileLink" src="{{profile_image}}" width="48" height="48" [hidden]="!this.is_authenticated"/>
+        <a class="nav-link profileLinkSmall" [hidden]="!this.is_authenticated">Profile</a>
       </li>
     </ul>
   </div>

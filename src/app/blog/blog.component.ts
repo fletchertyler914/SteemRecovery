@@ -1,6 +1,7 @@
 // import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FeedService } from '../feed.service';
+import { FeedService } from '../feed/feed.service';
+
 declare var jquery: any;
 declare var $: any;
 

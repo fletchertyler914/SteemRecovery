@@ -9,6 +9,7 @@ import * as steemconnect from 'steemconnect';
 export class HomeComponent implements OnInit {
   welcome_message: string;
   additional_message: string;
+  username: string;
 
   constructor() { }
 
@@ -21,7 +22,8 @@ export class HomeComponent implements OnInit {
     .then((results) => {
         if (results['isAuthenticated']) {
           // Authenticated
-          this.welcome_message = 'Welcome Back To SteemRecovery, ' + results['username'] + '!';
+          this.username = results['username'];
+          this.welcome_message = 'Welcome Back To SteemRecovery, ';
           this.additional_message = 'Thank you for being among the first to start a new revolution of recovery on the blockchain!';
         } else {
           // Not Authenticated
