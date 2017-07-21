@@ -6,7 +6,7 @@
   <a class="navbar-brand" routerLink="/home">SteemRecovery</a>
 
   <div class="collapse navbar-collapse justify-content-end" id="navbarToggler">
-    <ul class="navbar-nav mt-2 mt-md-0">
+    <ul class="navbar-nav mt-2 mt-md-0 line-height">
       <li class="nav-item">
         <a class="nav-link" routerLink="/home">Home</a>
       </li>
@@ -15,6 +15,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" [href]="url" [hidden]="this.is_authenticated">Login</a>
+        <img class="profileImage" src="{{profile_image}}" width="48" height="48" [hidden]="!this.is_authenticated"/>
       </li>
     </ul>
   </div>

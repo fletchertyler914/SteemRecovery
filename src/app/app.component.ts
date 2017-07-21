@@ -1,5 +1,7 @@
+import { resetFakeAsyncZone } from '@angular/core/testing/src/testing';
 import { Component, OnInit } from '@angular/core';
 import * as steemconnect from 'steemconnect';
+import * as steem from 'steem';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,8 @@ export class AppComponent implements OnInit {
   message: string;
   url: string;
   is_authenticated: boolean;
+  username: string;
+  profile_image: string;
 
   ngOnInit() {
     this.title = 'SteemRecovery';
@@ -31,7 +35,18 @@ export class AppComponent implements OnInit {
         } else {
             // console.log(`Logged in as ${result.username}`);
             this.is_authenticated = true;
+            this.username = result.username;
         }
+    });
+
+    const getUserImage = new Promise((resolve, reject) => {
+      steem.api.getAccounts(['tyler-fletcher'], function(err, result) {
+        resolve(result);
+      });
+    })
+    .then((results) => {
+      const profile = JSON.parse(results[0].json_metadata)['profile'];
+      this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
     });
   }
 }

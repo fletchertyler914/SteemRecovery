@@ -1,20 +1,17 @@
 .blog-container {
-    margin: 3% auto auto auto; 
+    font-size: 0.7rem;
 }
 
-.card-block {
-    float: left;
-}
-
-.image-container {
-    max-width: 20%;
-}
-
-.image-container > img {
-    width: 100%;
-    height: 100%;
+.card {
+    margin-top: 2%;
+    padding: 0;
 }
 
 .card-details {
     text-align: left;
+     padding: 0px; 
 }
+
+ /* .card-block {
+    padding: 0px;
+}  */

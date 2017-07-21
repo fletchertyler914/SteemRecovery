@@ -1,13 +1,12 @@
 <div class="blog-container">
-  
   <div class="container">
     <div class="card-group" *ngFor="let result of this.results">
-      <div class="card mb-3">
+      <div class="card">
         <div class="row">
-          <div class="col image-container">
-            <img class="img-thumbnail" src="http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_dx_18-140mmf_35-56g_ed_vr/img/sample/sample1_l.jpg" alt="Card image cap"/>
+          <div class="col-sm-3 image-container" [hidden]="!result.image_source">
+            <img class="img-fluid" src="{{result.image_source}}" alt="Card image cap" />
           </div>
-          <div class="col flex card-details">
+          <div class="col-sm-8 card-details">
             <div class="card-block">
               <h4 class="card-title">{{result.title}}</h4>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat velit, ab nesciunt suscipit veniam officia.</p>
@@ -19,5 +18,4 @@
       </div>
     </div>
   </div>
-
 </div>

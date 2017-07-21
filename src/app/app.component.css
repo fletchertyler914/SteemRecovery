@@ -4,3 +4,15 @@
 .nav-link {
     color: #fff !important;
 }
+
+.profileImage {
+    display: inline-block;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.line-height {
+    line-height: 200%;
+}

@@ -1,3 +1,4 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import * as steemconnect from 'steemconnect';
 import * as steem from 'steem';
@@ -31,7 +32,6 @@ export class BlogComponent implements OnInit {
 
     const fetchArticles = new Promise((resolve, reject) => {
       steem.api.getState('created/steem-recovery', function(err, result) {
-        console.log(result);
         resolve(result);
       });
     })
@@ -41,21 +41,19 @@ export class BlogComponent implements OnInit {
           return [value];
       });
 
+      resultsToArray.forEach(function(obj) {
+        const jsonMeta = JSON.parse(obj['json_metadata']);
+        const has_image = jsonMeta.hasOwnProperty('image');
+
+        if (has_image) {
+          obj.image_source = jsonMeta['image'][0];
+        }
+      });
+
       this.results = resultsToArray;
-
-      for (let i = 0; i < this.results.length; i++) {
-        // this.results[i].image = this.results[i].body;
-        // this.regex = /<img[^>]+src="(http:\/\/[^">]+)"/g;
-        // this.regex.exec(this.results[i].body);
-
-        console.log(this.regex);
-      }
-
-      console.log(this.results);
     })
     .catch((err) => {
       console.log(err);
     });
-
   }
 }
