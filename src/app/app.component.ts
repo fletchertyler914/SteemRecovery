@@ -28,25 +28,39 @@ export class AppComponent implements OnInit {
 
     this.url = steemconnect.getLoginURL();
 
-    steemconnect.isAuthenticated((err, result) => {
-        if (err) {
-            this.is_authenticated = false;
-        } else {
-            this.is_authenticated = true;
-            this.username = result.username;
-        }
-    });
-
-    if (this.is_authenticated) {
-      const getUserImage = new Promise((resolve, reject) => {
-        steem.api.getAccounts(['tyler-fletcher'], function(err, result) {
+    const checkIfAuthenticated = new Promise((resolve, reject) => {
+      steemconnect.isAuthenticated((err, result) => {
           resolve(result);
-        });
-      })
-      .then((results) => {
-        const profile = JSON.parse(results[0].json_metadata)['profile'];
-        this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
+      });
+    })
+    .then((results) => {
+        if (results['isAuthenticated']) {
+          // Authenticated
+          this.username = results['username'];
+          this.is_authenticated = true;
+
+          const getUserImage = new Promise((resolve, reject) => {
+            steem.api.getAccounts([this.username], function(err, result) {
+              resolve(result);
+            });
+          })
+          .then((result) => {
+            const has_metadata = result.hasOwnProperty('json_metadata');
+
+            if (has_metadata) {
+              const profile = JSON.parse(result[0].json_metadata)['profile'];
+              this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
+            } else {
+              this.profile_image = 'https://steemit.com/assets/0ee064e31a180b13aca01418634567a1.png';
+            }
+          });
+
+        } else {
+          // NOT Authenticated
+          console.log('not authenticated');
+          this.is_authenticated = false;
+        }
       });
     }
   }
-}
+

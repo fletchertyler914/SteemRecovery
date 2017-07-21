@@ -7,19 +7,26 @@ import * as steemconnect from 'steemconnect';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  is_authenticated: boolean;
-  user: string;
+  welcome_message: string;
+  additional_message: string;
+
   constructor() { }
 
   ngOnInit() {
-    steemconnect.isAuthenticated((err, result) => {
-        if (err) {
-            // console.log('Not Logged In On Home');
-            this.is_authenticated = false;
+    const checkIfAuthenticated = new Promise((resolve, reject) => {
+      steemconnect.isAuthenticated((err, result) => {
+          resolve(result);
+      });
+    })
+    .then((results) => {
+        if (results['isAuthenticated']) {
+          // Authenticated
+          this.welcome_message = 'Welcome Back To SteemRecovery, ' + results['username'] + '!';
+          this.additional_message = 'Thank you for being among the first to start a new revolution of recovery on the blockchain!';
         } else {
-            // console.log(`Logged in as ${result.username} on Home`);
-            this.user = result.username;
-            this.is_authenticated = true;
+          // Not Authenticated
+          this.welcome_message = 'Welcome To SteemRecovery!';
+          this.additional_message = 'Come be one of the first few to join a new revolution of recovery on the blockchain!';
         }
     });
   }
