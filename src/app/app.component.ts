@@ -30,23 +30,23 @@ export class AppComponent implements OnInit {
 
     steemconnect.isAuthenticated((err, result) => {
         if (err) {
-            // console.log('Not Logged In');
             this.is_authenticated = false;
         } else {
-            // console.log(`Logged in as ${result.username}`);
             this.is_authenticated = true;
             this.username = result.username;
         }
     });
 
-    const getUserImage = new Promise((resolve, reject) => {
-      steem.api.getAccounts(['tyler-fletcher'], function(err, result) {
-        resolve(result);
+    if (this.is_authenticated) {
+      const getUserImage = new Promise((resolve, reject) => {
+        steem.api.getAccounts(['tyler-fletcher'], function(err, result) {
+          resolve(result);
+        });
+      })
+      .then((results) => {
+        const profile = JSON.parse(results[0].json_metadata)['profile'];
+        this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
       });
-    })
-    .then((results) => {
-      const profile = JSON.parse(results[0].json_metadata)['profile'];
-      this.profile_image = 'https://steemitimages.com/120x120/' + profile['profile_image'];
-    });
+    }
   }
 }
